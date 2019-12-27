@@ -60,13 +60,19 @@ def origindata():
                 # print(data.iloc[num]['SUB_KIND_CODE'])
                 data.iloc[num, data.columns.get_loc('MAT_CODE')] = data.iloc[num]['SUB_KIND_CODE']
                 # print(data.iloc[num]['MAT_CODE'])
-        columeremove = ['ID', 'TASK_ID', 'DEAL_ID', 'KIND_CODE', 'KIND_NAME', 'SUB_KIND_CODE',
-       'SUB_KIND_NAME', 'MAT_CODE', 'MAT_NAME', 'TRUCK_KIND',
-       'GATE_CODE', 'NET_WEIGHT', 'VENDOR','VENDOR_CODE',
-       'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME', 'ENTRY_TIME', 'FINISH_TIME', 'interval']
+        columeremove = ['ID', 'TASK_ID', 'KIND_CODE', 'KIND_NAME', 'SUB_KIND_CODE',
+                        'SUB_KIND_NAME', 'MAT_CODE', 'MAT_NAME', 'GATE_CODE', 'NET_WEIGHT', 'VENDOR', 'VENDOR_CODE',
+                        'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME', 'ENTRY_TIME', 'FINISH_TIME', 'interval']
         data = data[columeremove]
-        print(len(data['MAT_CODE'].drop_duplicates()))
-        print(data.columns)
+        print(len(data))
+        data = data.fillna(0)
+        data2 = data[data.isnull().values==True]
+        print(len(data2))
+        print(data2)
+        data1 = data.dropna()
+        print(len(data1))
+        # print(len(data['MAT_CODE'].drop_duplicates()))
+        # print(data.columns)
         # print(data[['interval', 'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME']].head(100))
     except:
         print('fail to fetch data')

@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8e156da-4863-40d6-9a4a-fe130fe7f4bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Executesql.py" beforeDir="false" afterPath="$PROJECT_DIR$/Executesql.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/features.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,25 +25,18 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="PyScientificConfigurable" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.features">
+  <component name="RunManager" selected="Python.temp">
     <configuration name="DBconnect" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="queue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,12 +127,24 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.features" />
-        <item itemvalue="Python.Executesql" />
         <item itemvalue="Python.temp" />
+        <item itemvalue="Python.Executesql" />
+        <item itemvalue="Python.features" />
         <item itemvalue="Python.DBconnect" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -158,6 +160,11 @@
       <workItem from="1576045142224" duration="24000" />
       <workItem from="1576805794757" duration="14002000" />
       <workItem from="1577150932486" duration="5552000" />
+      <workItem from="1577166588703" duration="283000" />
+      <workItem from="1577409985116" duration="295000" />
+      <workItem from="1577410397891" duration="84000" />
+      <workItem from="1577410785072" duration="37000" />
+      <workItem from="1577410850226" duration="7245000" />
     </task>
     <servers />
   </component>
@@ -177,10 +184,28 @@
       </map>
     </option>
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="183" key="GridCell.Tab.0.bottom" timestamp="1577424392939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="183" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1577424392939" />
+    <state width="1493" height="183" key="GridCell.Tab.0.center" timestamp="1577424392939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="183" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1577424392939" />
+    <state width="1493" height="183" key="GridCell.Tab.0.left" timestamp="1577424392939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="183" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1577424392939" />
+    <state width="1493" height="183" key="GridCell.Tab.0.right" timestamp="1577424392939">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="183" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1577424392939" />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/queue$temp.coverage" NAME="temp Coverage Results" MODIFIED="1576809144061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/queue$Executesql.coverage" NAME="Executesql Coverage Results" MODIFIED="1577154179386" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/queue$features.coverage" NAME="features Coverage Results" MODIFIED="1577157004290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/queue$DBconnect.coverage" NAME="DBconnect Coverage Results" MODIFIED="1576806223311" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/queue$temp.coverage" NAME="temp Coverage Results" MODIFIED="1577423754643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/queue$Executesql.coverage" NAME="Executesql Coverage Results" MODIFIED="1577423478388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
