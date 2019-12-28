@@ -71,6 +71,7 @@ def origindata():
         print(data2)
         data1 = data.dropna()
         print(len(data1))
+        data.to_csv('origin_features.csv')
         # print(len(data['MAT_CODE'].drop_duplicates()))
         # print(data.columns)
         # print(data[['interval', 'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME']].head(100))
