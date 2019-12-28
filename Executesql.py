@@ -66,11 +66,12 @@ def origindata():
         data = data[columeremove]
         print(len(data))
         data = data.fillna(0)
-        data2 = data[data.isnull().values==True]
-        print(len(data2))
-        print(data2)
-        data1 = data.dropna()
-        print(len(data1))
+        # data2 = data[data.isnull().values==True]
+        # print(len(data2))
+        # print(data2)
+        # data1 = data.dropna()
+        # print(len(data1))
+        print(data.head(2))
         data.to_csv('origin_features.csv')
         # print(len(data['MAT_CODE'].drop_duplicates()))
         # print(data.columns)
