@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a8e156da-4863-40d6-9a4a-fe130fe7f4bb" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/create_features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/range_features.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Executesql.py" beforeDir="false" afterPath="$PROJECT_DIR$/Executesql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/create_features.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,7 +37,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="H:/untitled3" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -51,7 +52,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.create_features">
+  <component name="RunManager" selected="Python.temp">
     <configuration name="DBconnect" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="queue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -163,9 +164,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.create_features" />
         <item itemvalue="Python.temp" />
         <item itemvalue="Python.Executesql" />
+        <item itemvalue="Python.create_features" />
         <item itemvalue="Python.features" />
         <item itemvalue="Python.DBconnect" />
       </list>
@@ -198,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577508186037</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="car_feature">
+      <created>1577537488266</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1577537488266</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,7 +230,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="datas" />
-    <option name="LAST_COMMIT_MESSAGE" value="datas" />
+    <MESSAGE value="car_feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="car_feature" />
   </component>
   <component name="WindowStateProjectService">
     <state width="1493" height="183" key="GridCell.Tab.0.bottom" timestamp="1577424392939">

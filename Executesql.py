@@ -50,7 +50,7 @@ def origindata():
         data['ENTRY_TIME'] = data['ENTRY_TIME'].apply(dp.todatetime)
         data['FINISH_TIME'] = data['FINISH_TIME'].apply(dp.todatetime)
         data['interval'] = data['ENTRY_NOTICE_TIME'] - data['QUEUE_START_TIME']
-        data['interval'] = data['interval'].apply(lambda x: x.total_seconds()/3600)
+        data['interval'] = data['interval'].apply(lambda x: round(x.total_seconds()/3600, 2))
         '''
         废钢只有sub_kind_code,将废钢的sub_kind_code赋值给mat_code
         '''
@@ -65,6 +65,7 @@ def origindata():
                         'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME', 'ENTRY_TIME', 'FINISH_TIME', 'interval']
         data = data[columeremove]
         print(len(data))
+        data = data[~data['MAT_CODE'].isin(['GCYK', 'GJYK', 'PSFL'])]
         data = data.fillna(0)
         # data2 = data[data.isnull().values==True]
         # print(len(data2))
@@ -72,7 +73,7 @@ def origindata():
         # data1 = data.dropna()
         # print(len(data1))
         print(data.head(2))
-        data.to_csv('origin_features.csv')
+        data.to_csv('origin_features1.csv', index=False)
         # print(len(data['MAT_CODE'].drop_duplicates()))
         # print(data.columns)
         # print(data[['interval', 'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME']].head(100))

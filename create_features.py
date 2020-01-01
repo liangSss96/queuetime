@@ -50,12 +50,12 @@ def get_columns_name(data, n_in, n_out):
 
 
 # 获得同物料车辆的信息
-def get_same_mat_cars(data, row_info):
+def get_car_pre_info(data, row_info):
     # 未入场的车辆的已等待时间
     tempdata_noin = data[((row_info['QUEUE_START_TIME'] - data['QUEUE_START_TIME']).dt.total_seconds()/3600 < 24) &
                          (data['MAT_CODE'] == row_info['MAT_CODE']) &
                          (data['QUEUE_START_TIME'] < row_info['QUEUE_START_TIME'])]
-    tempdata_noin['interval'] = tempdata_noin['QUEUE_START_TIME'].apply(lambda x: (row_info['QUEUE_START_TIME'] - x).total_seconds()/3600)
+    tempdata_noin['interval'] = tempdata_noin['QUEUE_START_TIME'].apply(lambda x: round((row_info['QUEUE_START_TIME'] - x).total_seconds()/3600, 2))
     # 已入场车辆的准确等待时间
     tempdata_in = data[((row_info['QUEUE_START_TIME'] - data['QUEUE_START_TIME']).dt.total_seconds() / 3600 < 24) &
                        (data['MAT_CODE'] == row_info['MAT_CODE']) &
@@ -71,8 +71,8 @@ def get_same_mat_cars(data, row_info):
     print(len(tempdata))
     if len(tempdata) == 1:
         a = series_to_supervised(tempdata[column], 18, 1)
-        a['MAT_CODE'] = row_info['MAT_CODE']
-        a['QUEUE_START_TIME'] = row_info['QUEUE_START_TIME']
+        a['MAT_CODE'] = None
+        a['QUEUE_START_TIME'] = None
         return a
     else:
         tempdata = series_to_supervised(tempdata[column], 18, 1, False)
@@ -84,19 +84,29 @@ def get_same_mat_cars(data, row_info):
     return a
 
 
-data = pd.read_csv('origin_features.csv', index_col=0)
-data = data.sort_values(by=['QUEUE_START_TIME'], ascending=True)
-data['QUEUE_START_TIME'] = pd.to_datetime(data['QUEUE_START_TIME'])
-data['ENTRY_NOTICE_TIME'] = pd.to_datetime(data['ENTRY_NOTICE_TIME'])
-data['ENTRY_TIME'] = pd.to_datetime(data['ENTRY_TIME'])
-data['FINISH_TIME'] = pd.to_datetime(data['FINISH_TIME'])
-name = get_same_mat_cars(data, data.iloc[0])
+# 读取原始数据并初步处理
+def data_process():
+    data = pd.read_csv('origin_features.csv')
+    data = data.sort_values(by=['QUEUE_START_TIME'], ascending=True)
+    data['QUEUE_START_TIME'] = pd.to_datetime(data['QUEUE_START_TIME'])
+    data['ENTRY_NOTICE_TIME'] = pd.to_datetime(data['ENTRY_NOTICE_TIME'])
+    data['ENTRY_TIME'] = pd.to_datetime(data['ENTRY_TIME'])
+    data['FINISH_TIME'] = pd.to_datetime(data['FINISH_TIME'])
+    return data
+
+
+data = data_process()
+name = get_car_pre_info(data, data.iloc[0])
 tempdataset = pd.DataFrame(columns=name.columns)
 i = 0
 for index, row in data.iterrows():
-    # print(get_same_mat_cars(data, row))
-    tempdataset = pd.concat([tempdataset, get_same_mat_cars(data, row)])
+    tempdataset = pd.concat([tempdataset, get_car_pre_info(data, row)])
     print("%s / %s" % (i, len(data)))
     i += 1
+    if i > 2:
+        break
 tempdataset.dropna(how='all', axis=0)
-tempdataset.to_csv('car_features.csv')
+tempdataset = tempdataset.fillna(0)
+print(tempdataset)
+# tempdataset.to_csv('car_features.csv', index=False)
+
