@@ -6,9 +6,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/queue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/queue.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataProcess.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Executesql.py" beforeDir="false" afterPath="$PROJECT_DIR$/Executesql.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/create_features.py" beforeDir="false" afterPath="$PROJECT_DIR$/ts_create_features.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.py" beforeDir="false" afterPath="$PROJECT_DIR$/temp.py" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +42,19 @@
     <property name="last_opened_file_path" value="H:/untitled3" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RunManager" selected="Python.features">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.Executesql">
     <configuration name="DBconnect" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="queue" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -98,7 +112,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/create_features.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\10446\Desktop\queue\ts_create_features.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -153,25 +167,13 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Executesql" />
         <item itemvalue="Python.features" />
         <item itemvalue="Python.temp" />
-        <item itemvalue="Python.Executesql" />
         <item itemvalue="Python.create_features" />
         <item itemvalue="Python.DBconnect" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />

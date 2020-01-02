@@ -4,7 +4,7 @@ import pandas as pd
 import math
 import numpy as np
 from DataProcess import dataprocess as dp
-
+import Executesql as ex
 
 # data = es.origindata()
 # print(len(data))
@@ -45,28 +45,37 @@ from DataProcess import dataprocess as dp
 #     plt.show()
 
 data = pd.read_csv('origin_features1.csv')
-data = data[['TASK_ID', 'MAT_CODE', 'interval']]
-# print(data[data['interval'] == data['interval'].max()])
-data['timerange'] = data['interval'].apply(lambda x: int(math.ceil(x/0.5)))
-# print(data['timerange'].head(100))
-
-list1 = []
 
 
-for name, subset in data.groupby('MAT_CODE'):
-    print('%s 数量: %s' %(name, len(subset)))
-    a = subset['timerange'].tolist()
-    b = dp.ts(np.array(a))
-    b.append(name)
-    list1.append(b)
-    # count_set = set(a)
-    # count_list = list()
-    # print(name)
-    # for item in count_set:
-    #     count_list.append((item, a.count(item)))
-    # count_list = np.array(count_list)
-    # plt.bar(count_list[:, 0], count_list[:, 1], color='b')
-    # plt.title(name)
-    # plt.savefig("C:/Users/10446/Desktop/PNG/%s.jpg" % name)
-    # plt.close()
-print(dp.ts_to_dataframe(list1))
+def sub_set(data):
+    data = data[['TASK_ID', 'MAT_CODE', 'interval']]
+    data = data[data['interval'] < 25]
+    # print(data[data['interval'] == data['interval'].max()])
+    data['timerange'] = data['interval'].apply(lambda x: int(math.ceil(x/(1/3))))
+    # print(data['timerange'].head(100))
+    list1 = []
+
+
+    for name, subset in data.groupby('MAT_CODE'):
+        print('%s 数量: %s' % (name, len(subset)))
+        a = subset['timerange'].tolist()
+        b = dp.ts(np.array(a))
+        b.append(name)
+        list1.append(b)
+        count_set = set(a)
+        count_list = list()
+        for item in count_set:
+            count_list.append((item, a.count(item)))
+        count_list = np.array(count_list)
+        plt.bar(count_list[:, 0], count_list[:, 1], color='b')
+        plt.title(name)
+        plt.savefig("C:/Users/10446/Desktop/queue/picture/%s.jpg" % name)
+        plt.close()
+    print(dp.ts_to_dataframe(list1))
+
+
+if __name__ == '__main__':
+    sql1 = 'select * from dispatch.t_disp_entry_queue where QUEUE_START_TIME > "2019-07-01" ' \
+          'and QUEUE_START_TIME < "2019-11-01"'
+    data = ex.origindata(sql1)
+    sub_set(data)
