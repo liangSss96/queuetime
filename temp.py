@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 import datetime
 import matplotlib.pyplot as plt
+from DataProcess import dataprocess as dp
+
+
+
 # list2 = ['a', 'b']
 # temp = pd.DataFrame(list2, columns=['1'])
 # print(temp)
@@ -26,8 +30,10 @@ import matplotlib.pyplot as plt
 
 # enc = OneHotEncoder()
 #
-# list = [[0, 0, 3], [1, 1, 0], [0, 2, 1], [1, 0, 2]]
-# data = pd.DataFrame(list, columns=['a', 'b', 'c'])
+list = [[0, 0, 3], [1, 1, 0], [0, 2, 1], [1, 0, 2]]
+data = pd.DataFrame(list, columns=['a', 'b', 'c'])
+lists = data.values
+print(dp.ts(lists[:, 2]))
 # print(~(data['b'].isin([1, 0])))
 # data = data[(~(data['b'].isin([1, 0])))]
 # print(data)
@@ -53,36 +59,33 @@ import matplotlib.pyplot as plt
 # layers = [Dense(2)]
 # print(layers)
 
-def draw(data):
-    means = data.rolling(12).mean()
-    std = data.rolling(12).std()
-    plt.plot(data, color='r', label='origin')
-    plt.plot(means, color='g', label='mean')
-    plt.plot(std, color='b', label='std')
-    plt.legend()
-    plt.show()
+# def draw(data):
+#     means = data.rolling(12).mean()
+#     std = data.rolling(12).std()
+#     plt.plot(data, color='r', label='origin')
+#     plt.plot(means, color='g', label='mean')
+#     plt.plot(std, color='b', label='std')
+#     plt.legend()
+#     plt.show()
 
 
-data = pd.read_csv('origin_features1.csv')
-columnname = ['MAT_CODE', 'QUEUE_START_TIME', 'interval']
-result = data[columnname]
-result1 = result.groupby('MAT_CODE')
+# data = pd.read_csv('origin_features1.csv')
+# columnname = ['MAT_CODE', 'QUEUE_START_TIME', 'interval']
+# result = data[columnname]
+# result1 = result.groupby('MAT_CODE')
 # print(result1.groups)
-subgroup_40 = result1.get_group(10302000050000)
-subgroup_40.sort_values(by=['QUEUE_START_TIME'], ascending=True, inplace=True)
-# print(subgroup_40.head(10))
+# subgroup_40 = result1.get_group(10302000050000)
+# subgroup_40.sort_values(by=['QUEUE_START_TIME'], ascending=True, inplace=True)
+# # print(subgroup_40.head(10))
 # process = lambda x: datetime.datetime.strptime(x, '%Y-%m-%d %')
-subgroup_40_timeseries = subgroup_40[['QUEUE_START_TIME', 'interval']]
-subgroup_40_timeseries['QUEUE_START_TIME'] = subgroup_40_timeseries['QUEUE_START_TIME'].apply\
-    (lambda x:datetime.datetime.strptime(x, '%Y-%m-%d %H:%M:%S'))
-subgroup_40_timeseries.set_index('QUEUE_START_TIME', inplace=True)
+# subgroup_40_timeseries = subgroup_40[['QUEUE_START_TIME', 'interval']]
+# subgroup_40_timeseries['QUEUE_START_TIME'] = subgroup_40_timeseries['QUEUE_START_TIME'].apply\
+#     (lambda x:datetime.datetime.strptime(x, '%Y-%m-%d %H:%M:%S'))
+# subgroup_40_timeseries.set_index('QUEUE_START_TIME', inplace=True)
 # draw(subgroup_40_timeseries.head(150))
-subgroup_40_timeseries_weight = subgroup_40_timeseries['interval'].ewm(halflife=2, min_periods=12).mean()
-residual_error = subgroup_40_timeseries - pd.DataFrame(subgroup_40_timeseries_weight)
-plt.plot(residual_error.head(150), color='r')
-plt.plot(subgroup_40_timeseries.head(150), color='b')
-plt.show()
-# rolling = subgroup_40_timeseries.rolling(12).mean()
-# print(subgroup_40_timeseries_weight)
-# print(rolling.head(20))
+# subgroup_40_timeseries_weight = subgroup_40_timeseries['interval'].ewm(halflife=2).mean()
+# residual_error = subgroup_40_timeseries - pd.DataFrame(subgroup_40_timeseries_weight)
+# plt.plot(residual_error.head(150), color='r')
+# plt.plot(subgroup_40_timeseries.head(150), color='b')
+# plt.show()
 
