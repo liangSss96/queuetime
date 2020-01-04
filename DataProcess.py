@@ -23,10 +23,10 @@ class dataprocess():
 
     # 提取的聚合特征的集合转化
     def ts_to_dataframe(list):
-        return pd.DataFrame(list, columns=['mean', 'std', 'median', 'quantitle_25', 'MAT_CODE'])
+        return pd.DataFrame(list, columns=['mean', 'std', 'median', 'quantitle_25', 'MAT_CODE', 'numbers'])
 
 
-    # 获得品种序列的时间序列
+    # 获得品种序列的时间序列折线图
     '''
     需要排队开始时间、等待时间
     '''
@@ -41,5 +41,3 @@ class dataprocess():
             plt.plot(sub_set['interval'], color='r')
             plt.show()
             # break
-
-

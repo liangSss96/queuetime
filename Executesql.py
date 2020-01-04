@@ -39,6 +39,10 @@ def origindata(sql):
     # print(len(data))
     # data = data[~data['MAT_CODE'].isin(['GCYK', 'GJYK', 'PSFL', '0'])]
     # data = data.fillna(0)
+
+    '''
+    等待时间必须大于0
+    '''
     try:
         # 执行SQL
         cursor.execute(sql)

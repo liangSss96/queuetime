@@ -54,21 +54,23 @@ def get_car_pre_info(data, row_info):
     # 未入场的车辆的已等待时间
     tempdata_noin = data[((row_info['QUEUE_START_TIME'] - data['QUEUE_START_TIME']).dt.total_seconds()/3600 < 24) &
                          (data['MAT_CODE'] == row_info['MAT_CODE']) &
-                         (data['QUEUE_START_TIME'] < row_info['QUEUE_START_TIME'])]
+                         (data['QUEUE_START_TIME'] < row_info['QUEUE_START_TIME']) &
+                         (data['ENTRY_NOTICE_TIME'] > row_info['QUEUE_START_TIME'])]
     tempdata_noin['interval'] = tempdata_noin['QUEUE_START_TIME'].apply(lambda x: round((row_info['QUEUE_START_TIME'] - x).total_seconds()/3600, 2))
     # 已入场车辆的准确等待时间
     tempdata_in = data[((row_info['QUEUE_START_TIME'] - data['QUEUE_START_TIME']).dt.total_seconds() / 3600 < 24) &
                        (data['MAT_CODE'] == row_info['MAT_CODE']) &
                        (data['QUEUE_START_TIME'] < row_info['QUEUE_START_TIME']) &
                        (data['ENTRY_NOTICE_TIME'] < row_info['QUEUE_START_TIME'])]
-    print(row_info['QUEUE_START_TIME'])
+    # print(row_info['QUEUE_START_TIME'])
     tempdata = pd.concat([tempdata_in, tempdata_noin])
     tempdata = tempdata.sort_values(by=['QUEUE_START_TIME'], ascending=True)
+    # print(tempdata)
     row = pd.DataFrame(row_info)
     row = pd.DataFrame(row.values.T, index=row.columns, columns=row.index)
     tempdata = pd.concat([tempdata, row])
     column = ['NET_WEIGHT', 'interval']
-    print(len(tempdata))
+    # print(len(tempdata))
     if len(tempdata) == 1:
         a = series_to_supervised(tempdata[column], 18, 1)
         a['MAT_CODE'] = None
@@ -103,10 +105,9 @@ for index, row in data.iterrows():
     tempdataset = pd.concat([tempdataset, get_car_pre_info(data, row)])
     print("%s / %s" % (i, len(data)))
     i += 1
-    if i > 2:
-        break
+    # if i > 100:
+    #     break
 tempdataset.dropna(how='all', axis=0)
 tempdataset = tempdataset.fillna(0)
-print(tempdataset)
-# tempdataset.to_csv('car_features.csv', index=False)
+tempdataset.to_csv('car_features_true.csv', index=False)
 
