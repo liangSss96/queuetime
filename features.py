@@ -47,7 +47,7 @@ def sub_set_classify(data):
     data = data[data['interval'] < 10]
     # print(data[data['interval'] == data['interval'].max()])
     data['timerange'] = data['interval'].apply(lambda x: int(math.ceil(x/(1/3))))
-    # print(data['timerange'].head(100))
+    print(data['timerange'].head(100))
     list1 = []
     for name, subset in data.groupby('MAT_CODE'):
         print('%s 数量: %s' % (name, len(subset)))

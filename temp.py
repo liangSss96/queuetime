@@ -32,8 +32,10 @@ from DataProcess import dataprocess as dp
 #
 list = [[0, 0, 3], [1, 1, 0], [0, 2, 1], [1, 0, 2]]
 data = pd.DataFrame(list, columns=['a', 'b', 'c'])
-lists = data.values
-print(dp.ts(lists[:, 2]))
+ss = (data['a'].values).reshape(2, -1)
+print(ss)
+# lists = data.values
+# print(dp.ts(lists[:, 2]))
 # print(~(data['b'].isin([1, 0])))
 # data = data[(~(data['b'].isin([1, 0])))]
 # print(data)

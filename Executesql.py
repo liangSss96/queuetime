@@ -56,7 +56,7 @@ def origindata(sql):
         data['ENTRY_TIME'] = data['ENTRY_TIME'].apply(dp.todatetime)
         data['FINISH_TIME'] = data['FINISH_TIME'].apply(dp.todatetime)
         data['interval'] = data['ENTRY_NOTICE_TIME'] - data['QUEUE_START_TIME']
-        data['interval'] = data['interval'].apply(lambda x: round(x.total_seconds()/3600, 2))
+        data['interval'] = data['interval'].apply(lambda x: round(x.total_seconds()/3600, 3))
         '''
         废钢只有sub_kind_code,将废钢的sub_kind_code赋值给mat_code
         '''
@@ -82,7 +82,7 @@ def origindata(sql):
         # data1 = data.dropna()
         # print(len(data1))
         # print(data.head(2))
-        # data.to_csv('origin_features1.csv', index=False)
+        data.to_csv('origin_features_3.csv', index=False)
         # print(len(data['MAT_CODE'].drop_duplicates()))
         # print(data.columns)
         # print(data[['interval', 'QUEUE_START_TIME', 'ENTRY_NOTICE_TIME']].head(100))
@@ -96,10 +96,10 @@ def origindata(sql):
 
 if __name__ == '__main__':
     sql = 'select * from dispatch.t_disp_entry_queue where QUEUE_START_TIME > "2019-08-01" ' \
-          'and QUEUE_START_TIME < "2019-08-10"'
+          'and QUEUE_START_TIME < "2019-09-01"'
     data = origindata(sql)
-    results = data.groupby('MAT_CODE')
+    # results = data.groupby('MAT_CODE')
     # for name, sub_set in results:
     #     print(name)
-    subgroup = results.get_group('40')
-    dp.get_mat_ts(subgroup)
+    # subgroup = results.get_group('40')
+    # dp.get_mat_ts(subgroup)
